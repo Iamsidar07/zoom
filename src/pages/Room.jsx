@@ -14,7 +14,7 @@ const Room = () => {
   let myMeeting = (element) => {
     const appId = parseInt(import.meta.env.VITE_ZEGOCLOUD_APPID);
     const serverSecret = import.meta.env.VITE_ZEGOCLOUD_SERVER_SECRET;
-    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(
+    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appId,
       serverSecret,
       roomId,

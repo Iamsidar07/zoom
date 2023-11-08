@@ -66,7 +66,7 @@ const Home = () => {
 
         <div className="h-96 sm:h-full relative">
           <img
-            src="src/assets/preview.jpg"
+            src="preview.jpg"
             alt="preview"
             className="w-full h-full object-contain"
           />
