@@ -13,7 +13,6 @@ function App() {
       >
         <Navbar />
         <Routes>
-
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/room/:roomId" element={<Room />} />

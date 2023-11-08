@@ -7,7 +7,7 @@ import { BsKeyboard } from "react-icons/bs";
 const Home = () => {
   const [roomId, setRoomId] = useState("");
   return (
-    <div className="min-h-screen flex flex-col items-center w-full ">
+    <div className="min-h-[calc(100vh-56px)] flex flex-col items-center w-full ">
       <section className="flex flex-col  md:flex-row items-center md:justify-between pt-12 md:pt-24  w-full h-[calc(100vh-48px)] max-w-7xl mx-auto">
         <div className="flex flex-col items-center sm:items-start max-w-xl p-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
@@ -40,8 +40,9 @@ const Home = () => {
             </div>
             <Link
               className="ml-1.5 text-zinc-500 font-bold"
-              to={`/room/${roomId.trim().length === 0 ? uuidv5() : roomId.trim()
-                }`}
+              to={`/room/${
+                roomId.trim().length === 0 ? uuidv5() : roomId.trim()
+              }`}
             >
               Join
             </Link>
