@@ -1,20 +1,25 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
-import { v4 as uuidv4 } from "uuid";
+import {
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+  useUser,
+} from "@clerk/clerk-react";
 
 const Room = () => {
   const { roomId } = useParams();
+  const { user } = useUser();
 
   let myMeeting = (element) => {
-    const appId = 964045628;
-    const serverSecret = "a19821efceadb00e8322e52f64ed1c42";
-    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
+    const appId = parseInt(import.meta.env.VITE_ZEGOCLOUD_APPID);
+    const serverSecret = import.meta.env.VITE_ZEGOCLOUD_SERVER_SECRET;
+    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(
       appId,
       serverSecret,
       roomId,
-      uuidv4(),
-      uuidv4(),
+      user?.id, // userId
+      user.fullName ?? user.firstName ?? user.lastName, // username
     );
 
     const zp = ZegoUIKitPrebuilt.create(kitToken);
@@ -30,11 +35,11 @@ const Room = () => {
       showTextChat: true,
       showUserList: true,
       maxUsers: 50,
-      layout: "Sidebar",
+      layout: "Grid",
       showLayoutButton: true,
       sharedLinks: [
         {
-          name: "Share link",
+          name: "Copy url",
           url: `${window.location.href}`,
         },
       ],
@@ -44,7 +49,16 @@ const Room = () => {
     });
   };
 
-  return <div ref={myMeeting} style={{ height: "100%", width: "100%" }}></div>;
+  return (
+    <div className=" h-screen w-full overflow-hidden ">
+      <SignedIn>
+        <div ref={myMeeting} className="w-full h-full"></div>;
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </div>
+  );
 };
 
 export default Room;
