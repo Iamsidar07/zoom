@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Room from "./pages/Room";
 import { ClerkProvider } from "@clerk/clerk-react";
 import Signin from "./pages/Signin";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <ClerkProvider
         publishableKey={import.meta.env.VITE_APP_CLERK_PUBLISHABLE_KEY}
       >
+        <Navbar />
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/room/:roomId" element={<Room />} />

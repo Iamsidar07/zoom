@@ -3,27 +3,11 @@ import { Link } from "react-router-dom";
 import { v4 as uuidv5 } from "uuid";
 import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { BsKeyboard } from "react-icons/bs";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const Home = () => {
   const [roomId, setRoomId] = useState("");
   return (
     <div className="min-h-screen flex flex-col items-center w-full ">
-      <header className="bg-white w-full ">
-        <nav className=" flex items-center justify-between px-6 py-3 w-full max-w-7xl mx-auto  ">
-          <Link to={"/"} className="text-xl sm:text-2xl font-bold flex items-center ">
-            <img src="icon.png" alt="logo" className="w-8 h-8 object-contain" />
-            Zoom
-          </Link>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          <SignedOut>
-            <Link to={"/signin"}>Sign In</Link>
-          </SignedOut>
-        </nav>
-      </header>
-
       <section className="flex flex-col  md:flex-row items-center md:justify-between pt-12 md:pt-24  w-full h-[calc(100vh-48px)] max-w-7xl mx-auto">
         <div className="flex flex-col items-center sm:items-start max-w-xl p-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
