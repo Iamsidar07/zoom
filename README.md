@@ -1,4 +1,16 @@
-# React + Vite
+# Zoom
+[Zoom](https://zoom-swart.vercel.app/) clone built with zegocloud
+
+# Tech Stacks
+- reactjs
+- tailwindcss
+- clerk-auth
+- zegocloud
+
+### preview 
+![zoom clone preview](/public/demo.png)
+
+### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

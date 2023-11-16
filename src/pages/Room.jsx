@@ -1,3 +1,4 @@
+"use client"
 import { useParams } from "react-router-dom";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import {
@@ -10,7 +11,6 @@ import {
 const Room = () => {
   const { roomId } = useParams();
   const { user } = useUser();
-
   let myMeeting = (element) => {
     const appId = parseInt(import.meta.env.VITE_ZEGOCLOUD_APPID);
     const serverSecret = import.meta.env.VITE_ZEGOCLOUD_SERVER_SECRET;
